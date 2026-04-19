@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(export PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\")",
+      "Bash(chmod +x /Users/arthurfernandesdemorais/Desktop/code_projects/blog/.claude/start-dev.sh)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(pkill -f 'astro dev')",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:astro.build)",
+      "Bash(mkdir -p /tmp/blog-posts-backup)",
+      "Bash(cp /Users/arthurfernandesdemorais/Desktop/code_projects/blog/src/data/blog/*.md /tmp/blog-posts-backup/)",
+      "Read(//tmp/**)",
+      "Bash(pnpm install:*)",
+      "Bash(printf 'a\\\\ny\\\\n')",
+      "Bash(pnpm approve-builds:*)",
+      "Bash(pnpm rebuild:*)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:br.linkedin.com)"
+    ]
+  }
+}
