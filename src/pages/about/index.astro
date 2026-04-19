@@ -1,0 +1,52 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+---
+
+<PageLayout
+  title="About"
+  description="About Arthur Morais — data scientist and software engineer based in São Paulo."
+>
+  <Container>
+    <div class="animate space-y-6 text-black/75 dark:text-white/75">
+      <p>
+        I currently work at <Link href="https://getenter.ai/en" external
+          >Enter</Link
+        >, where I'm part of the founding engineering team. Enter applies AI to
+        help Latin American companies manage legal processes at scale by
+        automating how enterprises respond to lawsuits and monitor court
+        activity. Enter is Sequoia Capital's second-ever investment in Brazil.
+      </p>
+
+      <p>
+        Before Enter, I spent four years at <Link
+          href="https://www.linkedin.com/company/buserbrasil/"
+          external>Buser Brasil</Link
+        >, a bus travel startup that disrupted the traditional charter bus
+        market. I started as an Analyst, moved into data engineering building
+        pipelines and data infrastructure, and ended up as a Data Scientist /
+        Software Engineer working on demand forecasting models.
+      </p>
+
+      <p>
+        I studied Computer Engineering at <Link
+          href="https://en.wikipedia.org/wiki/Instituto_Tecnol%C3%B3gico_de_Aeron%C3%A1utica"
+          external>Instituto Tecnológico de Aeronáutica (ITA)</Link
+        >, one of Brazil's most selective engineering programs, for both my
+        bachelor's and master's degrees. My master's research focused on
+        Explainable AI.
+      </p>
+
+      <p>
+        You can find me on <Link href="https://github.com/ArthurMor4is" external
+          >GitHub</Link
+        > or <Link href="https://www.linkedin.com/in/arthurmorais" external
+          >LinkedIn</Link
+        >, or reach me at <Link href="mailto:arthurfmorais@gmail.com"
+          >arthurfmorais@gmail.com</Link
+        >.
+      </p>
+    </div>
+  </Container>
+</PageLayout>

@@ -43,6 +43,13 @@ article {
   @apply prose-headings:text-black prose-headings:dark:text-white;
 }
 
+/* Image captions: em inside paragraphs that also contain an img */
+article p:has(> img) em {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
 @layer utilities {
   article a {
     @apply font-sans text-current underline underline-offset-2;

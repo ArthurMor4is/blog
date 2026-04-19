@@ -16,11 +16,11 @@ pip install dbteasy
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `dbteasy run-changed` | Runs `dbt run` only on modified models |
-| `dbteasy docs` | Compiles documentation and opens a server on port 8000 |
-| `dbteasy refresh` | Chains `dbt clean`, `dbt deps`, and `dbt seed` |
+| Command               | Description                                            |
+| --------------------- | ------------------------------------------------------ |
+| `dbteasy run-changed` | Runs `dbt run` only on modified models                 |
+| `dbteasy docs`        | Compiles documentation and opens a server on port 8000 |
+| `dbteasy refresh`     | Chains `dbt clean`, `dbt deps`, and `dbt seed`         |
 
 ## Requirements
 

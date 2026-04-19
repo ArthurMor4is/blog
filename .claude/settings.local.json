@@ -18,7 +18,20 @@
       "Bash(pnpm rebuild:*)",
       "WebFetch(domain:medium.com)",
       "WebFetch(domain:www.linkedin.com)",
-      "WebFetch(domain:br.linkedin.com)"
+      "WebFetch(domain:br.linkedin.com)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "Bash(curl -sL \"https://miro.medium.com/v2/resize:fit:1400/1*DTHrzcrxCUgi0rSBVtLb5Q.png\" -o \"img01.png\")",
+      "Bash(curl -sL \"https://miro.medium.com/v2/resize:fit:1400/1*RDdMNION3CYAR25dUozlxA.png\" -o \"img02.png\")",
+      "Bash(curl -sL \"https://miro.medium.com/v2/resize:fit:1400/1*Nvv7C33Qd9RI_y-37Sv1fg.png\" -o \"img03.png\")",
+      "Bash(curl -sL \"https://miro.medium.com/v2/resize:fit:1400/1*MTWgu0WotZRjs7cRlqdP-Q.png\" -o \"img04.png\")",
+      "Bash(curl -sL \"https://miro.medium.com/v2/resize:fit:1400/1*fmH1-XLYznD8pGh_xUpchg.png\" -o \"img05.png\")",
+      "Bash(identify /Users/arthurfernandesdemorais/Desktop/code_projects/blog/src/content/blog/what-movie-watch/img04.png)",
+      "mcp__Claude_in_Chrome__read_console_messages",
+      "Bash(/opt/homebrew/bin/pnpm build:*)",
+      "Bash(gh auth:*)",
+      "Bash(git add:*)"
     ]
   }
 }

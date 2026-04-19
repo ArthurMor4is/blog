@@ -7,44 +7,96 @@ draft: false
 
 ![What movie should I watch?](./hero.jpeg)
 
-## The problem
+How I used Python to build a new movie list
 
-How many times have you wasted hours picking a movie — and ended up disappointed? Instead of relying on Netflix's recommendation algorithm, I decided to use Python to build my own list.
+Who hasn't wasted hours picking a movie — only to end up disappointed? I'm not
+going to get into the merits of recommendation algorithms used by streaming
+services like Netflix. My goal here is to describe how we can use rankings from
+a few websites (even if they change over time) to find recommendations for new
+films worth watching.
 
-## The technical approach
+While taking Alura's online course — Introduction to Python Pandas, part of
+their Data Science track — I came across a very useful function in the Pandas
+library: `pandas.read_html`. It scrapes tables from a web page and returns them
+as a list of DataFrames. Starting from that function (and my desire to make good
+use of the vacation time my university grants me) I decided to build a movie
+recommendation notebook.
 
-While taking a Python Pandas for Data Science course at Alura, I came across the `pandas.read_html()` function. This function automatically extracts tables from web pages and converts them into DataFrames — perfect for aggregating movie data from multiple sources.
+I started by looking up the top-rated films on IMDb, available at
+[this link](https://www.imdb.com/chart/top/?ref_=nv_mv_250). To get my first
+DataFrame I checked whether the function returned more than one table — there
+might be extra tables elsewhere on the page:
 
-![Testing the pandas.read_html() function](./code1-read-html.png)
+![](./img01.png)
 
-## Data sources
+Great — as expected, we only got one DataFrame. Let's rename it and take a look
+at how IMDb structured it:
 
-The project combines three well-known rankings:
+![](./img02.png)
 
-1. **IMDb Top 250** — The highest-rated films according to IMDb users
-2. **Rotten Tomatoes** — Critically acclaimed films
-3. **1001 Movies You Must See Before You Die** — A classic list available on Wikipedia
+I then checked whether the user-rating column actually had the same value filled
+in for every film.
 
-![DataFrame extracted from IMDb](./code2-imdb-df.png)
+![](./img03.png)
 
-![Data extracted from Rotten Tomatoes](./code3-rotten-tomatoes.png)
+Unfortunately, as the preview already suggested, none of the films had the
+ratings I had previously filled in.
 
-![Wikipedia film list](./code4-wikipedia.png)
+Moving on, I looked for another well-regarded source for worldwide film
+rankings: Rotten Tomatoes. I pulled the top-rated films from
+[this link](https://www.rottentomatoes.com/top/bestofrt/) using the same
+approach.
 
-## Technical challenge: title matching
+![](./img04.png)
 
-Each site formats titles differently. IMDb includes ranking numbers; Rotten Tomatoes appends release years. Simple string matching didn't work, so I implemented a **similarity score** with a threshold above 0.78 to confirm matches.
+In this case, the page containing the best-films list also had other tables I
+didn't need, so I had to test them one by one in the notebook.
 
-![String similarity metric testing](./code5-similarity.png)
+Finally, to refine the recommendation even further, I looked into the famous
+list of 1001 movies you must see before you die — the result of a series of
+books with that rather daunting title. Fortunately, I didn't have to hunt down a
+pirated PDF: one of those lists is available on
+[Wikipedia](https://en.wikipedia.org/wiki/1001_Movies_You_Must_See_Before_You_Die).
 
-## Results and limitations
+![](./img05.png)
 
-The analysis successfully identified films appearing in both Rotten Tomatoes and the 1001 films list. Integrating IMDb data was harder: titles were in Portuguese, and translation APIs didn't produce reliable results.
+Just like with Rotten Tomatoes, I had to figure out which table on the page was
+the one I needed.
 
-![Matched films across multiple rankings](./code6-results.png)
+At this point my goal was to get a list of films that ranked highly on both IMDb
+and Rotten Tomatoes and also appeared in the 1001 films list. The first problem
+I ran into was title formatting: each DataFrame uses a different convention. The
+IMDb list includes a ranking number before the film title in the 'Rank & Title'
+column; Rotten Tomatoes appends the release year after the title in the 'Title'
+column. A simple string comparison wasn't going to cut it.
 
-## Conclusion
+But that's what Stack Overflow is for :)
 
-The goal was achieved: explore film discovery techniques and showcase useful Pandas functions. The project is available on [GitHub](https://github.com/ArthurMor4is/ListaDeFilmes_python_project) — feel free to extend it with other ranking sources!
+In [this thread](https://stackoverflow.com/questions/17388213/find-the-similarity-metric-between-two-strings)
+I found a string similarity metric. I ran a quick test with the top-ranked film
+in the Rotten Tomatoes DataFrame to see whether it would actually be useful:
 
-> Originally published on [Medium](https://medium.com/@arthurfmorais/qual-filme-assistir-1edb9beaa840)
+![](./img06.png)
+
+Based on that, I decided to use a similarity score above 0.78 to consider two
+titles a match across different DataFrames.
+
+I then got a list of films appearing in both Rotten Tomatoes and the 1001 films
+list simultaneously. I printed them out just to make sure there were no false
+positives:
+
+![](./img07.png)
+
+At this point I had a solid list of films, but IMDb was still missing.
+
+And here's where a problem came up: the IMDb film titles were in Portuguese, not
+English. I looked into ways to work around it, but the tests I ran using
+[this Google Translate API](https://pypi.org/project/googletrans/) weren't
+reliable enough — movie title translations are rarely literal :(
+
+All things considered, I believe I achieved my original goal: exploring how to
+build a new movie list and showcasing some useful Pandas functions along the
+way. I'm happy with this for a first post. You can take this notebook and extend
+it with other ranking sources of your choosing :)
+
+[![This project is available on GitHub — click here to access it!](./img08.png)](https://github.com/ArthurMor4is/ListaDeFilmes_python_project)

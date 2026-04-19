@@ -10,7 +10,8 @@ export const SITE: Site = {
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Blog about Data Science, Machine Learning and personal projects.",
+  DESCRIPTION:
+    "Blog about Data Science, Machine Learning and personal projects.",
 };
 
 export const BLOG: Metadata = {
@@ -36,10 +37,10 @@ export const PROJECTS: Metadata = {
 export const SOCIALS: Socials = [
   {
     NAME: "github",
-    HREF: "https://github.com/ArthurMor4is"
+    HREF: "https://github.com/ArthurMor4is",
   },
   {
     NAME: "linkedin",
     HREF: "https://www.linkedin.com/in/arthurfmorais/",
-  }
+  },
 ];
